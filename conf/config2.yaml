@@ -1,0 +1,13 @@
+web:
+  runmode: release
+  addr: :8090
+
+log:
+  cycle: 6
+
+db:
+  name: anon
+  ip: 127.0.0.1
+  username: root
+  password: ycj52011
+

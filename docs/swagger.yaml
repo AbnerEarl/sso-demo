@@ -1,0 +1,138 @@
+definitions:
+  gins.Response:
+    properties:
+      code:
+        type: integer
+      data: {}
+      err: {}
+      message:
+        type: string
+      tips:
+        type: string
+    type: object
+info:
+  contact:
+    email: ×××@qq.com
+    name: API Support
+    url: http://www.cnblogs.com
+  description: 项目前后端联调及测试API文档。
+  termsOfService: https://github.com
+  title: 项目API文档
+  version: "1.0"
+paths:
+  /account/callback:
+    get:
+      consumes:
+      - application/json
+      description: 功能描述
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: '{"code":2,"data":{},"msg":"业务错误"}'
+          schema:
+            $ref: '#/definitions/gins.Response'
+      security:
+      - ApiKeyAuth: []
+      summary: 登录回调
+      tags:
+      - 用户管理
+  /account/info:
+    get:
+      consumes:
+      - application/json
+      description: 功能描述
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: '{"code":2,"data":{},"msg":"业务错误"}'
+          schema:
+            $ref: '#/definitions/gins.Response'
+      security:
+      - ApiKeyAuth: []
+      summary: 个人信息
+      tags:
+      - 用户管理
+  /account/login:
+    get:
+      consumes:
+      - application/json
+      description: 功能描述
+      parameters:
+      - description: 用户账号
+        in: body
+        name: username
+        required: true
+        schema:
+          type: string
+      - description: 用户密码
+        in: body
+        name: password
+        required: true
+        schema:
+          type: string
+      - description: 会话ID
+        in: body
+        name: sid
+        required: true
+        schema:
+          type: string
+      - description: 验证码
+        in: body
+        name: vericode
+        required: true
+        schema:
+          type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: '{"code":2,"data":{},"msg":"业务错误"}'
+          schema:
+            $ref: '#/definitions/gins.Response'
+      security:
+      - ApiKeyAuth: []
+      summary: 用户登录
+      tags:
+      - 用户管理
+  /account/logout:
+    get:
+      consumes:
+      - application/json
+      description: 功能描述
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: '{"code":2,"data":{},"msg":"业务错误"}'
+          schema:
+            $ref: '#/definitions/gins.Response'
+      security:
+      - ApiKeyAuth: []
+      summary: 用户退出
+      tags:
+      - 用户管理
+  /docs:
+    get:
+      consumes:
+      - application/json
+      description: 功能描述
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: '{"code":2,"data":{},"msg":"业务错误"}'
+          schema:
+            $ref: '#/definitions/gins.Response'
+      security:
+      - ApiKeyAuth: []
+      summary: 字段解释
+      tags:
+      - API接口管理
+securityDefinitions:
+  ApiKeyAuth:
+    in: header
+    name: token
+    type: apiKey
+swagger: "2.0"

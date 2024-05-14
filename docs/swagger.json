@@ -1,0 +1,219 @@
+{
+    "swagger": "2.0",
+    "info": {
+        "description": "项目前后端联调及测试API文档。",
+        "title": "项目API文档",
+        "termsOfService": "https://github.com",
+        "contact": {
+            "name": "API Support",
+            "url": "http://www.cnblogs.com",
+            "email": "×××@qq.com"
+        },
+        "version": "1.0"
+    },
+    "paths": {
+        "/account/callback": {
+            "get": {
+                "security": [
+                    {
+                        "ApiKeyAuth": []
+                    }
+                ],
+                "description": "功能描述",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "用户管理"
+                ],
+                "summary": "登录回调",
+                "responses": {
+                    "200": {
+                        "description": "{\"code\":2,\"data\":{},\"msg\":\"业务错误\"}",
+                        "schema": {
+                            "$ref": "#/definitions/gins.Response"
+                        }
+                    }
+                }
+            }
+        },
+        "/account/info": {
+            "get": {
+                "security": [
+                    {
+                        "ApiKeyAuth": []
+                    }
+                ],
+                "description": "功能描述",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "用户管理"
+                ],
+                "summary": "个人信息",
+                "responses": {
+                    "200": {
+                        "description": "{\"code\":2,\"data\":{},\"msg\":\"业务错误\"}",
+                        "schema": {
+                            "$ref": "#/definitions/gins.Response"
+                        }
+                    }
+                }
+            }
+        },
+        "/account/login": {
+            "get": {
+                "security": [
+                    {
+                        "ApiKeyAuth": []
+                    }
+                ],
+                "description": "功能描述",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "用户管理"
+                ],
+                "summary": "用户登录",
+                "parameters": [
+                    {
+                        "description": "用户账号",
+                        "name": "username",
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "description": "用户密码",
+                        "name": "password",
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "description": "会话ID",
+                        "name": "sid",
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "description": "验证码",
+                        "name": "vericode",
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "{\"code\":2,\"data\":{},\"msg\":\"业务错误\"}",
+                        "schema": {
+                            "$ref": "#/definitions/gins.Response"
+                        }
+                    }
+                }
+            }
+        },
+        "/account/logout": {
+            "get": {
+                "security": [
+                    {
+                        "ApiKeyAuth": []
+                    }
+                ],
+                "description": "功能描述",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "用户管理"
+                ],
+                "summary": "用户退出",
+                "responses": {
+                    "200": {
+                        "description": "{\"code\":2,\"data\":{},\"msg\":\"业务错误\"}",
+                        "schema": {
+                            "$ref": "#/definitions/gins.Response"
+                        }
+                    }
+                }
+            }
+        },
+        "/docs": {
+            "get": {
+                "security": [
+                    {
+                        "ApiKeyAuth": []
+                    }
+                ],
+                "description": "功能描述",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "API接口管理"
+                ],
+                "summary": "字段解释",
+                "responses": {
+                    "200": {
+                        "description": "{\"code\":2,\"data\":{},\"msg\":\"业务错误\"}",
+                        "schema": {
+                            "$ref": "#/definitions/gins.Response"
+                        }
+                    }
+                }
+            }
+        }
+    },
+    "definitions": {
+        "gins.Response": {
+            "type": "object",
+            "properties": {
+                "code": {
+                    "type": "integer"
+                },
+                "data": {},
+                "err": {},
+                "message": {
+                    "type": "string"
+                },
+                "tips": {
+                    "type": "string"
+                }
+            }
+        }
+    },
+    "securityDefinitions": {
+        "ApiKeyAuth": {
+            "type": "apiKey",
+            "name": "token",
+            "in": "header"
+        }
+    }
+}
